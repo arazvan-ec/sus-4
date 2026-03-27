@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Domain/'
+            - '../src/Kernel.php'
+
+    App\Infrastructure\Repository\DoctrineSubscriptionRepository:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    App\Infrastructure\Repository\DoctrineCampaignRepository:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    App\Domain\SubscriptionRepositoryInterface:
+        alias: App\Infrastructure\Repository\DoctrineSubscriptionRepository
+
+    App\Domain\CampaignRepositoryInterface:
+        alias: App\Infrastructure\Repository\DoctrineCampaignRepository

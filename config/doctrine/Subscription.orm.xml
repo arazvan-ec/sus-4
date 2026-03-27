@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Domain\Subscription" table="subscriptions">
+        <id name="id" type="guid" column="id">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="userId" type="string" column="user_id" length="255"/>
+        <field name="email" type="string" column="email" length="320"/>
+        <field name="entityType" type="string" column="entity_type" length="50"/>
+        <field name="entityId" type="string" column="entity_id" length="255"/>
+        <field name="status" type="string" column="status" length="20"/>
+        <field name="createdAt" type="datetime_immutable" column="created_at"/>
+        <field name="updatedAt" type="datetime_immutable" column="updated_at"/>
+
+        <unique-constraints>
+            <unique-constraint columns="user_id,entity_type,entity_id" name="uniq_subscription"/>
+        </unique-constraints>
+
+        <indexes>
+            <index columns="entity_type,entity_id,status" name="idx_entity_status"/>
+            <index columns="user_id,status" name="idx_user_status"/>
+        </indexes>
+    </entity>
+
+</doctrine-mapping>

@@ -1,0 +1,21 @@
+framework:
+    messenger:
+        transports:
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+            audience_sync:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    queues:
+                        audience_sync: ~
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+                    multiplier: 4
+                    max_delay: 16000
+            campaign_dispatch:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    queues:
+                        campaign_dispatch: ~
+        routing: {}

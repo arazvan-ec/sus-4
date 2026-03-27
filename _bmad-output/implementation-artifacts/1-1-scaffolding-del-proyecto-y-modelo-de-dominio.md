@@ -1,6 +1,6 @@
 # Story 1.1: Scaffolding del proyecto y modelo de dominio
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -25,56 +25,56 @@ so that pueda construir features sobre una base solida con las convenciones defi
 
 ## Tasks / Subtasks
 
-- [ ] Task 1: Inicializar proyecto Symfony 7.2 (AC: 1)
-  - [ ] 1.1 `composer create-project symfony/skeleton:"7.2.*"` o configurar `composer.json` manualmente
-  - [ ] 1.2 Instalar dependencias: `doctrine/orm`, `doctrine/doctrine-bundle`, `doctrine/doctrine-migrations-bundle`, `symfony/messenger`, `symfony/amqp-messenger`
-  - [ ] 1.3 Crear estructura de directorios: `src/Domain/`, `src/Application/Handler/`, `src/Application/Message/`, `src/Application/Service/`, `src/Infrastructure/Controller/`, `src/Infrastructure/Repository/`, `src/Infrastructure/Client/`, `src/Infrastructure/Command/`, `src/Infrastructure/Rendering/`, `src/Infrastructure/Security/`
-  - [ ] 1.4 Configurar autoload PSR-4 en composer.json
+- [x] Task 1: Inicializar proyecto Symfony 7.2 (AC: 1)
+  - [x] 1.1 `composer create-project symfony/skeleton:"7.2.*"` o configurar `composer.json` manualmente
+  - [x] 1.2 Instalar dependencias: `doctrine/orm`, `doctrine/doctrine-bundle`, `doctrine/doctrine-migrations-bundle`, `symfony/messenger`, `symfony/amqp-messenger`
+  - [x] 1.3 Crear estructura de directorios: `src/Domain/`, `src/Application/Handler/`, `src/Application/Message/`, `src/Application/Service/`, `src/Infrastructure/Controller/`, `src/Infrastructure/Repository/`, `src/Infrastructure/Client/`, `src/Infrastructure/Command/`, `src/Infrastructure/Rendering/`, `src/Infrastructure/Security/`
+  - [x] 1.4 Configurar autoload PSR-4 en composer.json
 
-- [ ] Task 2: Crear enums de dominio (AC: 4, 5, 9)
-  - [ ] 2.1 `src/Domain/EntityType.php` — backed string enum
-  - [ ] 2.2 `src/Domain/CampaignStatus.php` — backed string enum
+- [x] Task 2: Crear enums de dominio (AC: 4, 5, 9)
+  - [x] 2.1 `src/Domain/EntityType.php` — backed string enum
+  - [x] 2.2 `src/Domain/CampaignStatus.php` — backed string enum
 
-- [ ] Task 3: Crear entidad Subscription (AC: 2, 9, 10)
-  - [ ] 3.1 `src/Domain/Subscription.php` — clase final, sin imports de Symfony/Doctrine
-  - [ ] 3.2 `src/Domain/SubscriptionRepositoryInterface.php`
-  - [ ] 3.3 Constructor con validacion de dominio
+- [x] Task 3: Crear entidad Subscription (AC: 2, 9, 10)
+  - [x] 3.1 `src/Domain/Subscription.php` — clase final, sin imports de Symfony/Doctrine
+  - [x] 3.2 `src/Domain/SubscriptionRepositoryInterface.php`
+  - [x] 3.3 Constructor con validacion de dominio
 
-- [ ] Task 4: Crear entidad Campaign (AC: 3, 9, 10)
-  - [ ] 4.1 `src/Domain/Campaign.php` — clase final, sin imports de Symfony/Doctrine
-  - [ ] 4.2 `src/Domain/CampaignRepositoryInterface.php`
+- [x] Task 4: Crear entidad Campaign (AC: 3, 9, 10)
+  - [x] 4.1 `src/Domain/Campaign.php` — clase final, sin imports de Symfony/Doctrine
+  - [x] 4.2 `src/Domain/CampaignRepositoryInterface.php`
 
-- [ ] Task 5: Crear excepciones y value objects de dominio (AC: 9)
-  - [ ] 5.1 `src/Domain/PermanentErrorException.php`
-  - [ ] 5.2 `src/Domain/TransientErrorException.php`
-  - [ ] 5.3 `src/Domain/ErrorType.php`
+- [x] Task 5: Crear excepciones y value objects de dominio (AC: 9)
+  - [x] 5.1 `src/Domain/PermanentErrorException.php`
+  - [x] 5.2 `src/Domain/TransientErrorException.php`
+  - [x] 5.3 `src/Domain/ErrorType.php`
 
-- [ ] Task 6: Mapeo Doctrine XML (AC: 6, 8)
-  - [ ] 6.1 `config/doctrine/Subscription.orm.xml` con indice unico compuesto
-  - [ ] 6.2 `config/doctrine/Campaign.orm.xml` con JSONB para audience_criteria
-  - [ ] 6.3 Configurar `config/packages/doctrine.yaml` con `type: xml` y `dir: '%kernel.project_dir%/config/doctrine'`
+- [x] Task 6: Mapeo Doctrine XML (AC: 6, 8)
+  - [x] 6.1 `config/doctrine/Subscription.orm.xml` con indice unico compuesto
+  - [x] 6.2 `config/doctrine/Campaign.orm.xml` con JSONB para audience_criteria
+  - [x] 6.3 Configurar `config/packages/doctrine.yaml` con `type: xml` y `dir: '%kernel.project_dir%/config/doctrine'`
 
-- [ ] Task 7: Implementar repositorios Doctrine (AC: 11)
-  - [ ] 7.1 `src/Infrastructure/Repository/DoctrineSubscriptionRepository.php` implementando `SubscriptionRepositoryInterface`
-  - [ ] 7.2 `src/Infrastructure/Repository/DoctrineCampaignRepository.php` implementando `CampaignRepositoryInterface`
+- [x] Task 7: Implementar repositorios Doctrine (AC: 11)
+  - [x] 7.1 `src/Infrastructure/Repository/DoctrineSubscriptionRepository.php` implementando `SubscriptionRepositoryInterface`
+  - [x] 7.2 `src/Infrastructure/Repository/DoctrineCampaignRepository.php` implementando `CampaignRepositoryInterface`
 
-- [ ] Task 8: Crear migracion de base de datos (AC: 7, 8)
-  - [ ] 8.1 Ejecutar `bin/console doctrine:migrations:diff` o crear migracion manual
-  - [ ] 8.2 Verificar que incluye indice unico en subscriptions `(user_id, entity_type, entity_id)`
-  - [ ] 8.3 Verificar que `audience_criteria` usa tipo JSONB
+- [x] Task 8: Crear migracion de base de datos (AC: 7, 8)
+  - [x] 8.1 Ejecutar `bin/console doctrine:migrations:diff` o crear migracion manual
+  - [x] 8.2 Verificar que incluye indice unico en subscriptions `(user_id, entity_type, entity_id)`
+  - [x] 8.3 Verificar que `audience_criteria` usa tipo JSONB
 
-- [ ] Task 9: Configuracion base del proyecto
-  - [ ] 9.1 `config/packages/doctrine.yaml` — conexion PostgreSQL, mapeo XML
-  - [ ] 9.2 `config/packages/framework.yaml` — configuracion base
-  - [ ] 9.3 `config/services.yaml` — autowiring, binding de interfaces a implementaciones
-  - [ ] 9.4 `.env` — DATABASE_URL con postgres
-  - [ ] 9.5 `phpunit.dist.xml` — configuracion de tests
+- [x] Task 9: Configuracion base del proyecto
+  - [x] 9.1 `config/packages/doctrine.yaml` — conexion PostgreSQL, mapeo XML
+  - [x] 9.2 `config/packages/framework.yaml` — configuracion base
+  - [x] 9.3 `config/services.yaml` — autowiring, binding de interfaces a implementaciones
+  - [x] 9.4 `.env` — DATABASE_URL con postgres
+  - [x] 9.5 `phpunit.dist.xml` — configuracion de tests
 
-- [ ] Task 10: Tests unitarios (AC: 12)
-  - [ ] 10.1 `tests/Unit/Domain/EntityTypeTest.php`
-  - [ ] 10.2 `tests/Unit/Domain/CampaignStatusTest.php`
-  - [ ] 10.3 `tests/Unit/Domain/SubscriptionTest.php`
-  - [ ] 10.4 `tests/Unit/Domain/CampaignTest.php`
+- [x] Task 10: Tests unitarios (AC: 12)
+  - [x] 10.1 `tests/Unit/Domain/EntityTypeTest.php`
+  - [x] 10.2 `tests/Unit/Domain/CampaignStatusTest.php`
+  - [x] 10.3 `tests/Unit/Domain/SubscriptionTest.php`
+  - [x] 10.4 `tests/Unit/Domain/CampaignTest.php`
 
 ## Dev Notes
 
@@ -244,8 +244,53 @@ src/
 
 ### Agent Model Used
 
-(pendiente — sera completado por el agente de desarrollo)
+Claude Opus 4.6 (1M context)
 
 ### Completion Notes List
 
+- Proyecto Symfony 7.2 inicializado con composer.json y todas las dependencias
+- Entidades Domain puras: Subscription (con deactivate/reactivate), Campaign (con state machine pending→processing→sent|failed)
+- Enums PHP 8.4: EntityType (journalist, tag, section), CampaignStatus (pending, processing, sent, failed)
+- Mapeo XML Doctrine con indice unico compuesto en subscriptions y JSONB para audience_criteria
+- Repositorios Doctrine implementando interfaces de dominio
+- Migracion manual creada con todas las tablas, indices y constraints
+- 30 tests unitarios, 65 assertions — todos pasan
+- Domain verificado: cero imports de Symfony/Doctrine (NFR-12 cumplido)
+
 ### File List
+
+- composer.json (nuevo)
+- composer.lock (nuevo)
+- .env (nuevo)
+- bin/console (nuevo)
+- public/index.php (nuevo)
+- src/Kernel.php (nuevo)
+- src/Domain/EntityType.php (nuevo)
+- src/Domain/CampaignStatus.php (nuevo)
+- src/Domain/Subscription.php (nuevo)
+- src/Domain/SubscriptionRepositoryInterface.php (nuevo)
+- src/Domain/Campaign.php (nuevo)
+- src/Domain/CampaignRepositoryInterface.php (nuevo)
+- src/Domain/ErrorType.php (nuevo)
+- src/Domain/PermanentErrorException.php (nuevo)
+- src/Domain/TransientErrorException.php (nuevo)
+- src/Infrastructure/Repository/DoctrineSubscriptionRepository.php (nuevo)
+- src/Infrastructure/Repository/DoctrineCampaignRepository.php (nuevo)
+- config/bundles.php (nuevo)
+- config/services.yaml (nuevo)
+- config/routes.yaml (nuevo)
+- config/routes/framework.yaml (nuevo)
+- config/packages/framework.yaml (nuevo)
+- config/packages/doctrine.yaml (nuevo)
+- config/packages/doctrine_migrations.yaml (nuevo)
+- config/packages/messenger.yaml (nuevo)
+- config/packages/security.yaml (nuevo)
+- config/packages/twig.yaml (nuevo)
+- config/doctrine/Subscription.orm.xml (nuevo)
+- config/doctrine/Campaign.orm.xml (nuevo)
+- migrations/Version20260327000001.php (nuevo)
+- phpunit.dist.xml (nuevo)
+- tests/Unit/Domain/EntityTypeTest.php (nuevo)
+- tests/Unit/Domain/CampaignStatusTest.php (nuevo)
+- tests/Unit/Domain/SubscriptionTest.php (nuevo)
+- tests/Unit/Domain/CampaignTest.php (nuevo)
