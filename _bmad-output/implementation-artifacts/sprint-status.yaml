@@ -45,7 +45,7 @@ development_status:
   # Epic 1: API de Suscripciones
   epic-1: in-progress
   1-1-scaffolding-del-proyecto-y-modelo-de-dominio: review
-  1-2-autenticacion-jwt: backlog
+  1-2-autenticacion-jwt: ready-for-dev
   1-3-consultar-estado-de-suscripcion-get: backlog
   1-4-crear-suscripcion-post: backlog
   1-5-cancelar-suscripcion-delete: backlog
