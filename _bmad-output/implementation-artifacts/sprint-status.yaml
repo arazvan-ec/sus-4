@@ -1,0 +1,84 @@
+# generated: 2026-03-27
+# last_updated: 2026-03-27
+# project: sus-4
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-03-27
+last_updated: 2026-03-27
+project: sus-4
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: API de Suscripciones
+  epic-1: backlog
+  1-1-scaffolding-del-proyecto-y-modelo-de-dominio: backlog
+  1-2-autenticacion-jwt: backlog
+  1-3-consultar-estado-de-suscripcion-get: backlog
+  1-4-crear-suscripcion-post: backlog
+  1-5-cancelar-suscripcion-delete: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Sincronizacion de Audiencias
+  epic-2: backlog
+  2-1-infraestructura-de-mensajeria-asincrona-para-audiencias: backlog
+  2-2-anadir-usuario-a-audiencia-mailchimp-al-suscribirse: backlog
+  2-3-eliminar-usuario-de-audiencia-mailchimp-al-cancelar: backlog
+  2-4-reintentos-y-resiliencia-en-sincronizacion-de-audiencias: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Procesamiento de Editoriales
+  epic-3: backlog
+  3-1-consumer-de-eventos-editorial-published: backlog
+  3-2-verificacion-de-flags-de-habilitacion: backlog
+  3-3-creacion-de-campana-o-descarte: backlog
+  3-4-clients-http-para-servicios-externos: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Despacho de Campanas
+  epic-4: backlog
+  4-1-worker-de-campanas-programadas: backlog
+  4-2-resolucion-de-audiencia: backlog
+  4-3-despacho-a-notifier-service: backlog
+  4-4-manejo-de-fallos-en-despacho: backlog
+  4-5-comando-de-reconciliacion-de-campanas: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Observabilidad y Operaciones
+  epic-5: backlog
+  5-1-health-check-endpoint: backlog
+  5-2-logging-estructurado-con-correlation-id: backlog
+  5-3-configuracion-docker-y-entorno-de-desarrollo: backlog
+  epic-5-retrospective: optional
